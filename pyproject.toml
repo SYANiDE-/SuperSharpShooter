@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "supersharpshooter"
+version = "3.1.0"
+description = "Payload Generation Framework"
+authors = []
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+jsmin = "^3.0.1"
+colorama = "^0.4.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+supersharpshooter = "supersharpshooter.cli:console"
